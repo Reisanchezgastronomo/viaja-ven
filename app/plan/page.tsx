@@ -53,10 +53,9 @@ function Confetti() {
             delay: Math.random() * 0.5,
             rotate: Math.random() * 360,
         }));
-        setPieces(newPieces);
-
+        const startTimer = setTimeout(() => setPieces(newPieces), 0);
         const timer = setTimeout(() => setPieces([]), 2000);
-        return () => clearTimeout(timer);
+        return () => { clearTimeout(startTimer); clearTimeout(timer); };
     }, []);
 
     return (
