@@ -27,11 +27,6 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Close mobile menu on route change
-    useEffect(() => {
-        setMobileOpen(false);
-    }, [pathname]);
-
     // Determine header appearance states
     const isTransparent = isHome && !isScrolled && !mobileOpen;
 
