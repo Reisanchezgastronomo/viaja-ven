@@ -19,7 +19,7 @@ export default function ItineraryPage({ params }: ItineraryPageProps) {
     const itinerary = state.itinerary;
 
     // If no itinerary or wrong ID, show empty state
-    if (!itinerary) {
+    if (!itinerary || itinerary.id !== id) {
         return (
             <div className="max-w-2xl mx-auto px-4 sm:px-6 py-20 text-center page-enter">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-surface flex items-center justify-center">
