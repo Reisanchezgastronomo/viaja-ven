@@ -21,21 +21,21 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://viaja.ven";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://viaja-ven.vercel.app";
 
 export const metadata: Metadata = {
-  title: "VenezueLautentica · Turismo Gastronómico",
+  title: "VIAJA | Venezuela Auténtica · Demostrador gastronómico",
   description:
-    "Planifica tu día perfecto en Colonia Tovar. Gastronomía, cafés, cervezas artesanales y experiencias locales, organizadas en un solo plan.",
+    "Explora un demostrador de rutas gastronómicas en Colonia Tovar. Sello Valor está en desarrollo; información y precios ilustrativos.",
   metadataBase: new URL(siteUrl),
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "VenezueLautentica · Turismo Gastronómico",
+    title: "VIAJA | Venezuela Auténtica · Demostrador gastronómico",
     description:
-      "Planifica tu día perfecto en Colonia Tovar. Gastronomía, cafés, cervezas artesanales y experiencias locales.",
+      "Explora un demostrador de rutas gastronómicas en Colonia Tovar. Sello Valor está en desarrollo.",
     url: siteUrl,
     siteName: "VenezueLautentica",
     images: [
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VenezueLautentica · Turismo Gastronómico",
+    title: "VIAJA | Venezuela Auténtica · Demostrador gastronómico",
     description:
-      "Planifica tu día perfecto en Colonia Tovar. Gastronomía, cafés, cervezas artesanales y experiencias locales.",
+      "Explora un demostrador de rutas gastronómicas en Colonia Tovar. Sello Valor está en desarrollo.",
     images: ["/og-image.png"],
   },
 };
