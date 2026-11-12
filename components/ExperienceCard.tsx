@@ -37,14 +37,9 @@ export default function ExperienceCard({
                 {/* Hover overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                {/* Glassmorphic rating badge */}
-                <div className="absolute top-3 left-3 glass-card px-2.5 py-1 rounded-lg flex items-center gap-1.5">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"
-                            fill="#F59E0B" stroke="#F59E0B" strokeWidth="1" />
-                    </svg>
-                    <span className="text-xs font-semibold text-gray-900">{experience.rating}</span>
-                    <span className="text-[10px] text-text-muted">({experience.reviewCount})</span>
+                {/* Demostrador: nunca presentar calificaciones o sellos como otorgados */}
+                <div className="absolute top-3 left-3 rounded-lg border border-white/20 bg-white/95 px-2.5 py-1.5 text-[10px] font-semibold text-gray-800 shadow-sm">
+                    Sello Valor · evaluación pendiente
                 </div>
 
                 {/* Category chip */}
