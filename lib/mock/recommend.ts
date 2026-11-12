@@ -16,7 +16,7 @@ export function generateItinerary(selections: PlanSelections): Itinerary {
     } = selections;
 
     // 1. Filter experiences by budget
-    let pool = experiences.filter((e) => {
+    const pool = experiences.filter((e) => {
         if (!budget) return true;
         if (budget === 'económico') return e.priceTier === 'económico';
         if (budget === 'medio') return e.priceTier !== 'premium';
@@ -51,7 +51,6 @@ export function generateItinerary(selections: PlanSelections): Itinerary {
 
     // 4. Select top experiences, avoiding duplicates in category
     const selected: Experience[] = [];
-    const usedCategories = new Set<string>();
 
     for (const { experience } of scored) {
         if (selected.length >= maxItems) break;

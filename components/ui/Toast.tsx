@@ -21,12 +21,12 @@ export default function Toast({
 
     useEffect(() => {
         if (isVisible) {
-            setShow(true);
+            const showTimer = setTimeout(() => setShow(true), 0);
             const timer = setTimeout(() => {
                 setShow(false);
                 setTimeout(onDismiss, 200);
             }, duration);
-            return () => clearTimeout(timer);
+            return () => { clearTimeout(showTimer); clearTimeout(timer); };
         }
     }, [isVisible, duration, onDismiss]);
 

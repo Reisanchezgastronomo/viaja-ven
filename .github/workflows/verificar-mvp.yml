@@ -1,0 +1,29 @@
+name: Verificar MVP Venezuela Auténtica
+on:
+  push:
+    branches:
+      - mvp/venezuela-autentica-comercial
+  pull_request:
+    branches:
+      - main
+permissions:
+  contents: read
+jobs:
+  calidad:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Instalar dependencias
+        run: npm ci
+      - name: Comprobar tipado
+        run: npx tsc --noEmit
+      - name: Comprobar lint
+        run: npm run lint
+      - name: Compilar aplicación
+        run: npm run build

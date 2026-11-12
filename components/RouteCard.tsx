@@ -32,6 +32,9 @@ export default function RouteCard({ route }: RouteCardProps) {
                     <span className="px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-white/20 backdrop-blur-sm text-white/90 border border-white/10">
                         {route.experienceSlugs.length} paradas
                     </span>
+                    <span className="rounded-full border border-white/25 bg-white/15 px-2.5 py-0.5 text-[10px] font-medium text-white/90">
+                        Ruta demo · Sello Valor pendiente
+                    </span>
                 </div>
 
                 <h3 className="font-heading font-bold text-lg sm:text-xl !text-white leading-snug mb-1.5">

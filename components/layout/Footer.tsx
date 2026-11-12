@@ -56,9 +56,14 @@ export default function Footer() {
                             </span>
                         </Link>
                         <p className="text-sm text-text-muted leading-relaxed max-w-xs mb-6">
-                            Turismo gastronómico organizado en un solo plan.
-                            Descubre lo mejor de Colonia Tovar, Aragua.
+                            Demostrador de turismo gastronómico en Colonia Tovar.
+                            Las experiencias son ilustrativas; Sello Valor está en desarrollo.
                         </p>
+
+                        <div className="mb-5 flex flex-wrap gap-3 text-xs font-semibold">
+                            <a href="https://reisanchez-direccion-ejecutiva.netlify.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">Dirección Ejecutiva</a>
+                            <a href="https://integra-operacion-mvp.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">INTEGRA</a>
+                        </div>
 
                         {/* Social icons */}
                         <div className="flex items-center gap-3">

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import Button from '@/components/ui/Button';
 import ExperienceCard from '@/components/ExperienceCard';
 import RouteCard from '@/components/RouteCard';
@@ -16,52 +16,11 @@ const HERO_WORDS_L1 = ['Sabores', 'que', 'inspiran,'];
 const HERO_WORDS_L2 = ['memorias', 'que', 'perduran'];
 const POPULAR_TAGS = ['Café ☕', 'Strudel 🥮', 'Cerveza 🍺', 'Fresas 🍓', 'Chocolate 🍫', 'Fondue 🧀'];
 
-const STATS = [
-  { value: 12, suffix: '+', label: 'Experiencias curadas' },
-  { value: 3, suffix: '', label: 'Rutas temáticas' },
-  { value: 100, suffix: '%', label: 'Negocios locales' },
+const VALUE_CHAIN = [
+  { title: 'Identidad', detail: 'Patrimonio gastronómico y singularidad de cada destino.' },
+  { title: 'Operación', detail: 'Mejoras empresariales y estándares compartidos mediante INTEGRA.' },
+  { title: 'Experiencia', detail: 'Rutas preparadas y evaluación privada Sello Valor en desarrollo.' },
 ];
-
-function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const hasAnimated = useRef(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          const duration = 1200;
-          const startTime = performance.now();
-
-          const animate = (now: number) => {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.round(eased * target));
-            if (progress < 1) requestAnimationFrame(animate);
-          };
-
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [target]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {count}{suffix}
-    </span>
-  );
-}
 
 export default function HomePage() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -163,16 +122,31 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section aria-label="Sobre el ecosistema" className="border-y border-line bg-white px-4 py-7 sm:px-6">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-sm font-semibold text-gray-900">Venezuela Auténtica · una iniciativa de Rei Sánchez | Dirección Ejecutiva</p>
+            <p className="mt-2 max-w-4xl text-sm leading-relaxed text-text-muted">
+              Convertimos la identidad gastronómica de un destino en experiencias turísticas de valor. INTEGRA mejora cómo funcionan
+              los negocios; Sello Valor prepara la evaluación de estándares; VIAJA muestra rutas al visitante.
+              Este es el demostrador de Colonia Tovar, con información ilustrativa y sin compras ni sellos otorgados.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-5 text-sm font-semibold">
+              <a href="https://reisanchez-direccion-ejecutiva.netlify.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">Dirección responsable</a>
+              <a href="https://integra-operacion-mvp.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">INTEGRA · Transformación operativa</a>
+            </div>
+          </div>
+        </section>
+
         {/* ── Trending this weekend ── */}
         <section ref={trendingRef} className="reveal max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
           <div className="flex items-end justify-between mb-10">
             <div>
               <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-2">Tendencia</p>
               <h2 className="font-heading font-bold text-2xl sm:text-3xl text-gray-900">
-                Lo más buscado este fin de semana
+                Experiencias de muestra
               </h2>
               <p className="text-sm text-text-muted mt-2 max-w-md">
-                Experiencias recomendadas según la temporada y la demanda actual.
+                Explora el potencial de las rutas gastronómicas de Colonia Tovar. Los datos de esta demo son ilustrativos.
               </p>
             </div>
             <Button href="/explore" variant="ghost" size="sm" className="hidden sm:inline-flex group">
@@ -184,7 +158,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex gap-4 overflow-x-auto pb-4 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:overflow-visible scrollbar-hide">
-            {trending.map((exp, i) => (
+            {trending.map((exp) => (
               <div key={exp.id} className="reveal-child min-w-[220px] sm:min-w-0">
                 <ExperienceCard experience={exp} />
               </div>
@@ -234,14 +208,12 @@ export default function HomePage() {
             </h2>
           </div>
 
-          {/* Stats strip */}
-          <div className="grid grid-cols-3 gap-4 mb-14 max-w-lg mx-auto">
-            {STATS.map((stat) => (
-              <div key={stat.label} className="reveal-child text-center">
-                <p className="font-heading font-bold text-3xl sm:text-4xl text-gray-900">
-                  <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-                </p>
-                <p className="text-xs text-text-muted mt-1">{stat.label}</p>
+          {/* Tres pilares del proyecto; no cifras ficticias de negocio */}
+          <div className="grid gap-4 mb-14 md:grid-cols-3">
+            {VALUE_CHAIN.map((item) => (
+              <div key={item.title} className="reveal-child rounded-2xl border border-line p-5 text-center">
+                <p className="font-heading font-bold text-lg text-gray-900">{item.title}</p>
+                <p className="mt-2 text-xs text-text-muted">{item.detail}</p>
               </div>
             ))}
           </div>
@@ -267,7 +239,7 @@ export default function HomePage() {
                   </svg>
                 ),
                 title: '100% local',
-                text: 'Trabajamos con negocios locales verificados de Colonia Tovar.',
+                text: 'Mostramos cómo podrían organizarse experiencias elegibles tras su verificación operativa.',
               },
               {
                 icon: (

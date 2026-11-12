@@ -49,11 +49,10 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     // Auto-focus input when overlay opens
     useEffect(() => {
         if (isOpen) {
-            setQuery('');
-            setActiveTab('all');
-            // Small delay so the overlay animation finishes before focus
-            const timer = setTimeout(() => inputRef.current?.focus(), 150);
-            return () => clearTimeout(timer);
+            // Reiniciar el estado en una devolución asíncrona para evitar actualizaciones sincrónicas dentro del efecto.
+            const resetTimer = setTimeout(() => { setQuery(''); setActiveTab('all'); }, 0);
+            const focusTimer = setTimeout(() => inputRef.current?.focus(), 150);
+            return () => { clearTimeout(resetTimer); clearTimeout(focusTimer); };
         }
     }, [isOpen]);
 

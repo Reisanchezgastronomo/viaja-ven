@@ -28,7 +28,7 @@ function buildWhatsAppMessage(itinerary: Itinerary | null): string {
             (item) => `• ${item.time} — ${item.experience.title}`
         ),
         ``,
-        `¿Podrían confirmar disponibilidad y costos? ¡Gracias!`,
+        `Este es un ejemplo para visualizar una futura solicitud; no confirma reserva.`,
     ];
     return lines.join('\n');
 }
@@ -68,7 +68,7 @@ export default function ConfirmationModal({
             {!channel && (
                 <div>
                     <p className="text-sm text-text-muted mb-6">
-                        Elige cómo quieres confirmar disponibilidad o hacer preguntas.
+                        Demostración de solicitud. Los canales de envío y las reservas reales aún no están habilitados.
                     </p>
 
                     <div className="space-y-3">
@@ -147,7 +147,7 @@ export default function ConfirmationModal({
                         </Button>
                     </div>
                     <p className="text-xs text-text-muted mt-3 text-center">
-                        Luego abre WhatsApp y envía el mensaje al negocio.
+                        Este texto es ilustrativo. En este demostrador no se verifican disponibilidad ni contactos de operadores.
                     </p>
                 </div>
             )}
@@ -204,7 +204,7 @@ export default function ConfirmationModal({
                             />
                         </div>
                         <Button type="submit" fullWidth>
-                            Enviar solicitud
+                            Simular solicitud
                         </Button>
                     </form>
                 </div>
@@ -218,9 +218,9 @@ export default function ConfirmationModal({
                             <path d="M21 9L11.5 19L7 14.5" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                    <h3 className="font-heading font-semibold text-lg text-[#1D2939] mb-2">¡Solicitud enviada!</h3>
+                    <h3 className="font-heading font-semibold text-lg text-[#1D2939] mb-2">Simulación de solicitud completada</h3>
                     <p className="text-sm text-text-muted mb-6">
-                        Te contactaremos para confirmar disponibilidad y resolver cualquier duda.
+                        No se ha enviado ninguna solicitud ni se ha confirmado disponibilidad o reserva.
                     </p>
                     <Button onClick={handleClose} variant="secondary" fullWidth>
                         Cerrar
@@ -279,7 +279,7 @@ export default function ConfirmationModal({
                             />
                         </div>
                         <Button type="submit" fullWidth>
-                            Enviar solicitud
+                            Simular solicitud
                         </Button>
                     </form>
                 </div>
@@ -293,9 +293,9 @@ export default function ConfirmationModal({
                             <path d="M21 9L11.5 19L7 14.5" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                    <h3 className="font-heading font-semibold text-lg text-[#1D2939] mb-2">¡Solicitud recibida!</h3>
+                    <h3 className="font-heading font-semibold text-lg text-[#1D2939] mb-2">Simulación de solicitud completada</h3>
                     <p className="text-sm text-text-muted mb-6">
-                        Te contactaremos para confirmar disponibilidad y resolver cualquier duda.
+                        No se ha enviado ninguna solicitud ni se ha confirmado disponibilidad o reserva.
                     </p>
                     <Button onClick={handleClose} variant="secondary" fullWidth>
                         Cerrar
