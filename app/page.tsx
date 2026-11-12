@@ -158,7 +158,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex gap-4 overflow-x-auto pb-4 sm:grid sm:grid-cols-3 lg:grid-cols-4 sm:overflow-visible scrollbar-hide">
-            {trending.map((exp, i) => (
+            {trending.map((exp) => (
               <div key={exp.id} className="reveal-child min-w-[220px] sm:min-w-0">
                 <ExperienceCard experience={exp} />
               </div>
