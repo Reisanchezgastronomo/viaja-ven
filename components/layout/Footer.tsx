@@ -62,7 +62,7 @@ export default function Footer() {
 
                         <div className="mb-5 flex flex-wrap gap-3 text-xs font-semibold">
                             <a href="https://reisanchez-direccion-ejecutiva.netlify.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">Dirección Ejecutiva</a>
-                            <a href="https://intrega-landing.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">INTEGRA</a>
+                            <a href="https://integra-operacion-mvp.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">INTEGRA</a>
                         </div>
 
                         {/* Social icons */}
