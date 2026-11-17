@@ -21,29 +21,37 @@ const playfair = Playfair_Display({
   style: ["normal", "italic"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://viaja-ven.vercel.app";
+// Dominio público de la plataforma. Debe coincidir con la URL que se comparte.
+const siteUrl = "https://viaja-ven-rei-sanchez.vercel.app";
+const shareImage = siteUrl + "/api/og";
+const pageTitle = "VIAJA | Venezuela Auténtica · Demostrador gastronómico";
+const shareDescription =
+  "Explora el potencial de rutas y experiencias gastronómicas organizadas en Colonia Tovar. Demostrador ilustrativo de Rei Sánchez | Dirección Ejecutiva, sin reservas ni pagos.";
 
 export const metadata: Metadata = {
-  title: "VIAJA | Venezuela Auténtica · Demostrador gastronómico",
-  description:
-    "Explora un demostrador de rutas gastronómicas en Colonia Tovar. Sello Valor está en desarrollo; información y precios ilustrativos.",
+  title: pageTitle,
+  description: shareDescription,
   metadataBase: new URL(siteUrl),
+  alternates: {
+    canonical: siteUrl,
+  },
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "VIAJA | Venezuela Auténtica · Demostrador gastronómico",
+    title: "Venezuela Auténtica | VIAJA",
     description:
-      "Explora un demostrador de rutas gastronómicas en Colonia Tovar. Sello Valor está en desarrollo.",
+      "Del valor de un territorio a experiencias gastronómicas organizadas. VIAJA: demostrador de Colonia Tovar, sin reservas ni pagos.",
     url: siteUrl,
-    siteName: "VenezueLautentica",
+    siteName: "Venezuela Auténtica",
     images: [
       {
-        url: "/og-image.png",
+        url: shareImage,
         width: 1200,
         height: 630,
-        alt: "VenezueLautentica – Turismo Gastronómico en Colonia Tovar",
+        alt: "Venezuela Auténtica | VIAJA. Del valor de un territorio a experiencias gastronómicas organizadas.",
+        type: "image/png",
       },
     ],
     locale: "es_VE",
@@ -51,10 +59,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "VIAJA | Venezuela Auténtica · Demostrador gastronómico",
+    title: "Venezuela Auténtica | VIAJA",
     description:
-      "Explora un demostrador de rutas gastronómicas en Colonia Tovar. Sello Valor está en desarrollo.",
-    images: ["/og-image.png"],
+      "Rutas y experiencias gastronómicas organizadas. Demostrador de Colonia Tovar, sin reservas ni pagos.",
+    images: [shareImage],
   },
 };
 
