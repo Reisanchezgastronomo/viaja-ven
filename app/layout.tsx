@@ -23,7 +23,7 @@ const playfair = Playfair_Display({
 
 // Dominio público de la plataforma. Debe coincidir con la URL que se comparte.
 const siteUrl = "https://viaja-ven-rei-sanchez.vercel.app";
-const shareImage = siteUrl + "/api/og";
+const shareImage = siteUrl + "/api/og?v=2";
 const pageTitle = "VIAJA | Venezuela Auténtica · Demostrador gastronómico";
 const shareDescription =
   "Explora el potencial de rutas y experiencias gastronómicas organizadas en Colonia Tovar. Demostrador ilustrativo de Rei Sánchez | Dirección Ejecutiva, sin reservas ni pagos.";
