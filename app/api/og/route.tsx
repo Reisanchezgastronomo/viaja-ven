@@ -87,7 +87,7 @@ export function GET() {
             alignItems: "center",
             justifyContent: "space-between",
             gap: "16px",
-            width: "calc(100% + 140px)",
+            width: 1200,
             marginLeft: "-70px",
             background: "#16352F",
             color: "#F6F1E7",
