@@ -1,4 +1,5 @@
 'use client';
+import CaptacionSCI from "../components/CaptacionSCI";
 
 import Image from 'next/image';
 import { useState } from 'react';
@@ -267,6 +268,7 @@ export default function HomePage() {
           </div>
         </section>
 
+        <div className="mx-auto max-w-3xl px-5 text-white"><CaptacionSCI /></div>
         {/* ── Bottom CTA ── */}
         <section
           ref={ctaRef}
