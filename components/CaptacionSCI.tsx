@@ -23,7 +23,7 @@ export default function CaptacionSCI() {
  }
  const input="mt-2 w-full rounded-lg border border-white/25 bg-[#0b1115] p-3 text-white";
  return <section className="mt-10 rounded-2xl border border-white/20 bg-[#142025] p-7 sm:p-9">
- <h2 className="text-2xl font-semibold">¿Qué experiencia gastronómica te interesa?</h2>
+ <h2 className="text-2xl font-semibold !text-white">¿Qué experiencia gastronómica te interesa?</h2>
  <p className="mt-3 text-sm text-[#b7c4bd]">Ensayo de preferencias turísticas. No constituye reserva ni compra.</p>
  <form onSubmit={submit} className="mt-6 grid gap-4">
  <label>Nombre<input name="name" required maxLength={120} autoComplete="name" className={input}/></label>
