@@ -16,7 +16,7 @@ export default function CaptacionSCI({card}:{card?:TazaCard}){
   if(!eventId.current||previous.current!==fingerprint)eventId.current=crypto.randomUUID();
   previous.current=fingerprint;busy.current=true;setStatus("pending");
   try{
-   const response=await fetch("/api/sci/capture",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...data,...attribution,eventId:eventId.current,source:"viaja",followupOptin:data.followupOptin==="yes"?"yes":""})});
+   const response=await fetch("/api/sci/capture",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...data,...attribution,eventId:eventId.current,source:"viaja",followupOptin:data.followupOptin==="yes"?"yes":"",rewardKey:card?.key||""})});
    if(response.status===429){setStatus("limited");return;}
    if(!response.ok)throw new Error("capture");
    setStatus("ok");sciEvent("generate_lead","venezuela-en-una-taza");
