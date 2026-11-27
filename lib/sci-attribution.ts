@@ -39,4 +39,12 @@ export function sciEvent(name:string,product:string) {
   if(!w.dataLayer)w.dataLayer=[];
   w.dataLayer.push(payload);
   if(typeof w.gtag==="function")w.gtag("event",name,{product});
+ if(name==="sci_reward_download"){
+   try{
+     const a=captureAttribution(product);
+     const safe=(s:string)=>s.replace(/[^a-zA-Z0-9 _.\-]/g,"").slice(0,80);
+     const body={eventId:crypto.randomUUID(),event:"pdf_click",path:window.location.pathname,channel:safe(a.attributionSource)||"directo",campaign:safe(a.attributionCampaign),qa:new URLSearchParams(window.location.search).get("sci_qa")==="1"};
+     fetch("/api/sci/metric",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body),keepalive:true,credentials:"same-origin"}).catch(()=>{});
+   }catch{}
+  }
 }
