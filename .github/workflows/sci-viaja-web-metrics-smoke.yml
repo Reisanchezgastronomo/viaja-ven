@@ -1,0 +1,34 @@
+name: "SCI VIAJA | Evento web QA"
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sci-viaja-web-metrics-smoke.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: "Confirmar producto publicado y POST anónimo a Base Maestra"
+        shell: bash
+        run: |
+          set -euo pipefail
+          ORIGIN="https://viaja-ven-rei-sanchez.vercel.app"
+          cat >/tmp/sci-viaja-metric.json <<'JSON'
+          {"eventId":"afff3c1a-1f14-409e-97f9-120e8eace001","event":"pdf_click","path":"/venezuela-en-una-taza","channel":"github-actions-qa","campaign":"sci-web-qa","qa":true}
+          JSON
+          for attempt in 1 2 3 4 5; do
+            status=$(curl --silent --show-error -L --output /tmp/viaja-asset --write-out '%{http_code}' "$ORIGIN/cuadernos/taza/sci-web-metrics.js" || true)
+            if [[ "$status" == "200" ]] && grep -q 'sciTrack' /tmp/viaja-asset; then break; fi
+            sleep 12
+          done
+          echo "GET tracker HTTP $status"
+          test "$status" = "200"
+          grep -q 'sciTrack' /tmp/viaja-asset
+          code=$(curl --silent --show-error -o /tmp/viaja-metric-response -w '%{http_code}' -X POST "$ORIGIN/api/sci/metric" -H "Origin: $ORIGIN" -H "Content-Type: application/json" --data-binary @/tmp/sci-viaja-metric.json || true)
+          echo "POST VIAJA evento QA: HTTP $code"
+          test "$code" = "200"
+          grep -q '"ok":true' /tmp/viaja-metric-response
+          echo "PASS: evento anónimo de VIAJA aceptado; verificar fila TEST en Base Maestra."
