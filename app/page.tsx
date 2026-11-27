@@ -132,6 +132,7 @@ export default function HomePage() {
               Este es el demostrador de Colonia Tovar, con información ilustrativa y sin compras ni sellos otorgados.
             </p>
             <div className="mt-3 flex flex-wrap gap-5 text-sm font-semibold">
+              <a href="/venezuela-en-una-taza" className="text-primary underline underline-offset-4">Venezuela en una taza · Cuaderno interactivo</a>
               <a href="https://reisanchez-direccion-ejecutiva.netlify.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">Dirección responsable</a>
               <a href="https://integra-operacion-mvp.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">INTEGRA · Transformación operativa</a>
             </div>
