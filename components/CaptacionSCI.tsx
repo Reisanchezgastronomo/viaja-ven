@@ -28,7 +28,7 @@ export default function CaptacionSCI({ card }: { card?: TazaCard }) {
   } catch {setStatus("error");} finally {busy.current=false;}
  }
  const input="mt-2 w-full rounded-lg border border-white/25 bg-[#0b1115] p-3 text-white";
- return <section className="mt-10 rounded-2xl border border-white/20 bg-[#142025] p-7 sm:p-9">
+ return <section className="mt-10 rounded-2xl border border-white/20 bg-[#142025] text-white p-7 sm:p-9">
  <h2 className="text-2xl font-semibold !text-white">¿Qué experiencia gastronómica te interesa?</h2>
  <p className="mt-3 text-sm text-[#b7c4bd]">Ensayo de preferencias turísticas. No constituye reserva ni compra.</p>
  {card && status==="ok" ? <div className="mt-6 text-white" role="status">
@@ -38,7 +38,7 @@ export default function CaptacionSCI({ card }: { card?: TazaCard }) {
  <label>Nombre<input name="name" required maxLength={120} autoComplete="name" className={input}/></label>
  <label>Correo electrónico<input name="email" type="email" required maxLength={254} autoComplete="email" className={input}/></label>
  <label>Ciudad / país<input name="market" required maxLength={120} className={input}/></label>
- <label>Duración prevista<input name="duration" defaultValue={card?.duration} required maxLength={80} className={input}/></label>
+ <label>Duración prevista<input name="duration" defaultValue={card?.duration} readOnly={Boolean(card)} required maxLength={80} className={input}/></label>
  <label>¿Con quién viajarías?<input name="companions" required maxLength={80} className={input}/></label>
  <label>Experiencia preferida<select name="experience" defaultValue={card ? "Café" : ""} required className={input}><option value="">Seleccionar</option>{["Café","Cacao y chocolate","Panadería artesanal","Gastronomía tradicional","Productores rurales","Otra"].map(x=><option key={x}>{x}</option>)}</select></label>
  <label>Contexto adicional (opcional)<textarea name="context" maxLength={card ? 900 : 1000} className={input}/></label>
